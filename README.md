@@ -26,64 +26,46 @@ In your project's Gruntfile, add a section named `edgecast_purge` to the data ob
 grunt.initConfig({
   edgecast_purge: {
     options: {
-      // Task-specific options go here.
+      customer: '1234A',
+      authorization: 'TOK:your-hashed-authorization-token',
+      edgeCNAME: 'http://your.edge.cname.com/',
+      mediaType: 8
     },
     your_target: {
       // Target-specific file lists and/or options go here.
     },
-  },
+  }
 });
 ```
 
 ### Options
 
-#### options.separator
+#### options.customer
 Type: `String`
-Default value: `',  '`
+Default value: `null`
 
-A string value that is used to do something with whatever.
+**Required**. Your Edgecast Account.
 
-#### options.punctuation
+#### options.authorization
 Type: `String`
-Default value: `'.'`
+Default value: `null`
 
-A string value that is used to do something else with whatever else.
+**Required**. Your Edgecast WebService REST API Token
 
-### Usage Examples
+#### options.edgeCNAME
+Type: `String`
+Default value: `null`
 
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+**Required**. The Edge CNAME for the container you wish to purge.
 
-```js
-grunt.initConfig({
-  edgecast_purge: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+#### options.mediaType
+Type: `Integer`
+Default value: `null`
 
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  edgecast_purge: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
+**Required**. An integer that indicates the service for which an asset will be purged. (2: Flash Media Streaming, 3: HTTP Large, 8: HTTP Small, 14: Application Delivery Network (ADN))
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-_(Nothing yet)_
+* 2015-01-25   v0.1.0   Work in progress, not yet officially released.
