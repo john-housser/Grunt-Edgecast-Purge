@@ -68,4 +68,5 @@ Default value: `null`
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+* 2015-01-25   v0.1.1   Make `async` a dependency, not just a devDependency
 * 2015-01-25   v0.1.0   Work in progress, not yet officially released.
